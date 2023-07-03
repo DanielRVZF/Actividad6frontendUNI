@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller de Mantenimiento de PC</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Bienvenido al Taller de Mantenimiento de PC</h1>
+    <p>Registre y consulte los equipos de cómputo que ingresan al taller.</p>
+
+    <div id="opciones" class="d-flex justify-content-center">
+      <div class="opcion" onclick="mostrarFormulario()">
+        Registrar
+      </div>
+      <div class="opcion" onclick="mostrarEquipos()">
+        Consultar
+      </div>
+    </div>
+
+    <div id="formulario">
+      <h2>Registro de Equipo de Cómputo</h2>
+      <form id="formularioEquipo">
+        <div class="mb-3">
+          <label for="nombreCliente" class="form-label">Nombre del Cliente</label>
+          <input type="text" class="form-control" id="nombreCliente" required>
+        </div>
+        <div class="mb-3">
+          <label for="serial" class="form-label">Serial</label>
+          <input type="text" class="form-control" id="serial" required>
+        </div>
+        <div class="mb-3">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input type="text" class="form-control" id="telefono" required>
+        </div>
+        <div class="mb-3">
+          <label for="servicio" class="form-label">Servicio</label>
+          <input type="text" class="form-control" id="servicio" required>
+        </div>
+        <div class="mb-3">
+          <label for="observaciones" class="form-label">Observaciones</label>
+          <textarea class="form-control" id="observaciones" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar Equipo</button>
+      </form>
+    </div>
+
+    <div id="equipos" style="display: none;">
+      <h2>Lista de Equipos de Cómputo Registrados</h2>
+      <div id="busqueda" class="input-group mb-3">
+        <input type="text" class="form-control" id="busquedaInput" placeholder="Buscar por nombre del cliente">
+        <button class="btn btn-outline-secondary" type="button" onclick="buscarEquipos()">Buscar</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre del Cliente</th>
+            <th>Serial</th>
+            <th>Teléfono</th>
+            <th>Servicio</th>
+            <th>Observaciones</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaEquipos">
+          <!-- Aquí se mostrarán los equipos -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
